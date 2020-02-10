@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>2. Verification and Validation</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/custom.js"></script>
+        <script type="text/javascript" src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="1. How to Build" href="../developer_manual/how_to_build/how_to_build.html" />
+  <link rel="prev" title="1. Theory and Implementation" href="theory.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../index.html" class="home-link">
+    
+      <img class="logo" src="../../_static/SimCenter_s3hark_logo.png" alt="doit logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link  router-link-active">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link  router-link-active">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">User Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../license.html" class="reference internal ">Copyright and license</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/installation/installation.html" class="reference internal ">Installation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/quickstart/quickstart.html" class="reference internal ">Quick start</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/usage/usage.html" class="reference internal ">Usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/examples/examples.html" class="reference internal ">Examples</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/bugs.html" class="reference internal ">Bugs & Feauture Requests</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">Technical Manual</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 "><a href="theory.html" class="reference internal ">Theory and Implementation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Verification and Validation</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#d-column-1d-shaking" class="reference internal">2D Column 1D Shaking</a></li>
+                
+                  <li class="toctree-l2"><a href="#d-column-bidirectional-shaking" class="reference internal">3D Column Bidirectional Shaking</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">Developer Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../developer_manual/how_to_build/how_to_build.html" class="reference internal ">How to Build</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/architecture/architecture.html" class="reference internal ">Software Architecture</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/how_to_extend/how_to_extend.html" class="reference internal ">How to Extend</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/coding_style/coding_style.html" class="reference internal ">Coding Style</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+          
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">2. </span>Verification and Validation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="theory.html"
+       title="previous chapter">← <span class="section-number">1. </span>Theory and Implementation</a>
+  </li>
+  <li class="next">
+    <a href="../developer_manual/how_to_build/how_to_build.html"
+       title="next chapter"><span class="section-number">1. </span>How to Build →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="verification-and-validation">
+<span id="lbl-vnv"></span><h1><span class="section-number">2. </span>Verification and Validation<a class="headerlink" href="#verification-and-validation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="d-column-1d-shaking">
+<h2><span class="section-number">2.1. </span>2D Column 1D Shaking<a class="headerlink" href="#d-column-1d-shaking" title="Permalink to this headline">¶</a></h2>
+<p>A 2D free field effective stress analysis is performed by <em>s</em><sup>3</sup><em>hark</em>
+and demonstrated here.  The results are verified against FLAC and
+Plaxis.  The soil column being analyzed is 6 meters high sitting on a
+rock.  The ground water table is at 2 meters below the soil surface.
+In the column, there are a total of three soil layers. Each layer is
+meshed by elements with a size of 0.25 meter in height.  Basic
+properties of soil layers and the rock are shown
+in <a class="reference internal" href="#fig-s3harksoilcolumn"><span class="std std-numref">Fig. 2.1.1</span></a> and <a class="reference internal" href="#fig-s3hark5"><span class="std std-numref">Fig. 2.1.2</span></a>.  The
+first two layers are modeled by PM4Sand and the third layer is modeled
+by elastic isotropic material.  (The implementation work of
+PM4Sand <a class="bibtex reference internal" href="theory.html#boulanger2015pm4sand" id="id1">[BZ15]</a> is done in University of
+Washington by Long Chen and Pedro Arduino.  Chaofeng Wang at UC,
+Berkeley contributed to the code optimization for speed improvement. )
+The rock layer will be simplified to a <span class="bibtex" id="id2">[Lysmer:1969]</span> dashpot,
+which accounts for the finite rigidity of the underlying elastic
+medium.  The parameters of the dashpot are calculated solely based on
+rock layer’s density and <span class="math notranslate nohighlight">\(V_{s30}\)</span>.</p>
+<div class="align-center figure" id="id4">
+<span id="fig-s3harksoilcolumn"></span><img alt="../../_images/s3harkSoilColumn.png" src="../../_images/s3harkSoilColumn.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.1 </span><span class="caption-text">Soil layers</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id5">
+<span id="fig-s3hark5"></span><img alt="../../_images/s3hark5.png" src="../../_images/s3hark5.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.2 </span><span class="caption-text">Basic information of each layer</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+<p>The detailed properties of the material in each soil layer are shown
+in <a class="reference internal" href="#fig-l1"><span class="std std-numref">Fig. 2.1.3</span></a>, <a class="reference internal" href="#fig-l2"><span class="std std-numref">Fig. 2.1.4</span></a> and <a class="reference internal" href="#fig-l3"><span class="std std-numref">Fig. 2.1.5</span></a>.</p>
+<div class="align-center figure" id="id6">
+<span id="fig-l1"></span><img alt="../../_images/layer1.png" src="../../_images/layer1.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.3 </span><span class="caption-text">Layer 1</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id7">
+<span id="fig-l2"></span><img alt="../../_images/layer2.png" src="../../_images/layer2.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.4 </span><span class="caption-text">Layer 2</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id8">
+<span id="fig-l3"></span><img alt="../../_images/layer3.png" src="../../_images/layer3.png" />
+<p class="caption"><span class="caption-number">Fig. 2.1.5 </span><span class="caption-text">Layer 3</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</div>
+<p>For the verification and validation purposes, <em>s</em><sup>3</sup><em>hark</em>’s results are compared with FLAC an PLAXIS,
+as shown in <a class="reference internal" href="#fig-s3hark7"><span class="std std-numref">Fig. 2.1.6</span></a>.
+All three programs generally produce very similar response with
+different levels of differences shown in PHA, maximum shear strain, CSR, maximum pore pressure ratio.
+The differences come from multiple sources, such as numerical discretization methods, solvers, etc.
+For example, FLAC tends to produce higher dilation pulses in liquefied layer.
+This is possibly due to a combination of different reasons, e.g.,
+interpolation of data from integration points at different
+locations, numerical methods for integration, formulations for
+solid fluid coupling, etc.
+(Long Chen and Andrew Makdisi at University of Washington,
+Gregor Vilhar at PLAXIS BV, Chaofeng Wang at UC, Berkeley contributed to the verification of PM4Sand in <em>s</em><sup>3</sup><em>hark</em>.)</p>
+<div class="align-center figure" id="id9">
+<span id="fig-s3hark7"></span><img alt="../../_images/N10T3_RSN766_ProfileCompare.jpg" src="../../_images/N10T3_RSN766_ProfileCompare.jpg" />
+<p class="caption"><span class="caption-number">Fig. 2.1.6 </span><span class="caption-text">Compare with FLAC and PLAXIS</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="d-column-bidirectional-shaking">
+<h2><span class="section-number">2.2. </span>3D Column Bidirectional Shaking<a class="headerlink" href="#d-column-bidirectional-shaking" title="Permalink to this headline">¶</a></h2>
+<p>A 3D free field effective stress analysis is performed by <em>s</em><sup>3</sup><em>hark</em>
+and demonstrated here.  The results are verified against OpenSees.
+The soil column being analyzed is 30 meters high sitting on a
+rock.  The ground water table is at 2 meters below the soil surface.
+In the column, there are a total of three soil layers. Each layer is
+meshed by elements with a size of 0.5 meter in height.  Basic
+properties of soil layers and the rock are shown
+in <a class="reference internal" href="#s3harksoilcolumn3d"><span class="std std-numref">Fig. 2.2.1</span></a> and <a class="reference internal" href="#s3harklayers3d"><span class="std std-numref">Fig. 2.2.2</span></a>.
+The layers are modeled by PDMY02 material.
+The rock layer will be simplified to a <span class="bibtex" id="id3">[Lysmer:1969]</span> dashpot,
+which accounts for the finite rigidity of the underlying elastic
+medium.  The parameters of the dashpot are calculated solely based on
+rock layer’s density and <span class="math notranslate nohighlight">\(V_{s30}\)</span>.
+The slope parameters are set to be
+<span class="math notranslate nohighlight">\(\alpha=1.145762838175103^{\circ}\)</span> and <span class="math notranslate nohighlight">\(\beta=-90^{\circ}\)</span></p>
+<div class="align-center figure" id="id10">
+<span id="s3harksoilcolumn3d"></span><img alt="../../_images/s3harkSoilColumn3D.png" src="../../_images/s3harkSoilColumn3D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.1 </span><span class="caption-text">Soil layers of a 3D column</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id11">
+<span id="s3harklayers3d"></span><img alt="../../_images/layerstable3D.png" src="../../_images/layerstable3D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Soil layers of a 3D column</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+</div>
+<p>The simulation is described in a json file, which can be downloaded from <a class="reference download internal" download="" href="../../_downloads/63b042d2346f7c707139aa863c4eac8f/s3hark-demo-3D-slope.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+It includes all the configurations, the soil table and parameters for each layer - all the information needed to reproduce the simulation.
+In <em>s</em><sup>3</sup><em>hark</em>, go to the menu and choose to open and load this json file into the application,
+You’ll see the detailed properties of the material in each soil layer as those shown
+in Figures <a class="reference internal" href="#s3hark3dmattabs-1"><span class="std std-numref">Fig. 2.2.3</span></a>, <a class="reference internal" href="#s3hark3dmattabs-2"><span class="std std-numref">Fig. 2.2.4</span></a>, <a class="reference internal" href="#s3hark3dmattabs-3"><span class="std std-numref">Fig. 2.2.5</span></a> and <a class="reference internal" href="#s3hark3dmattabs-4"><span class="std std-numref">Fig. 2.2.6</span></a>.</p>
+<div class="align-center figure" id="id12">
+<span id="s3hark3dmattabs-1"></span><img alt="../../_images/layer13D.png" src="../../_images/layer13D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.3 </span><span class="caption-text">Detail soil properties and material model parameters  of a 3D column: Layer 1</span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id13">
+<span id="s3hark3dmattabs-2"></span><img alt="../../_images/layer23D.png" src="../../_images/layer23D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.4 </span><span class="caption-text">Detail soil properties and material model parameters  of a 3D column: Layer 2</span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id14">
+<span id="s3hark3dmattabs-3"></span><img alt="../../_images/layer33D.png" src="../../_images/layer33D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.5 </span><span class="caption-text">Detail soil properties and material model parameters  of a 3D column: Layer 3</span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
+</div>
+<div class="align-center figure" id="id15">
+<span id="s3hark3dmattabs-4"></span><img alt="../../_images/layer43D.png" src="../../_images/layer43D.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">Detail soil properties and material model parameters  of a 3D column: Rock</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+</div>
+<p>Download the ground motion file from <a class="reference download internal" download="" href="../../_downloads/e592080bdd91b47a2ff7cd6a378c5549/SRT-GM-Input-yerbaNSvelocity-2DShaking.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+In the <code class="docutils literal notranslate"><span class="pre">Configure</span></code> tab, put the path of the downloaded motion file into <code class="docutils literal notranslate"><span class="pre">Rock</span> <span class="pre">motion</span></code>.
+Then, click the <code class="docutils literal notranslate"><span class="pre">Analyze</span></code> button to perform the simulation.
+For the verification and validation purposes, <em>s</em><sup>3</sup><em>hark</em>’s results are compared with OpenSees,
+as shown in <a class="reference internal" href="#s3hark3dcolumnresults"><span class="std std-numref">Fig. 2.2.7</span></a>.</p>
+<div class="align-center figure" id="id16">
+<span id="s3hark3dcolumnresults"></span><img alt="../../_images/3DFreefield.png" src="../../_images/3DFreefield.png" />
+<p class="caption"><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Compare with OpenSees</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="theory.html"
+       title="previous chapter">← <span class="section-number">1. </span>Theory and Implementation</a>
+  </li>
+  <li class="next">
+    <a href="../developer_manual/how_to_build/how_to_build.html"
+       title="next chapter"><span class="section-number">1. </span>How to Build →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, NHERI SimCenter.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+
+
+
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

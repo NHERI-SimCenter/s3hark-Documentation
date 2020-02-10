@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>1. Theory and Implementation</title>
+    
+      <link rel="stylesheet" href="../../_static/pygments.css">
+      <link rel="stylesheet" href="../../_static/theme.css">
+      <link rel="stylesheet" href="../../_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../_static/language_data.js"></script>
+        <script type="text/javascript" src="../../_static/custom.js"></script>
+        <script type="text/javascript" src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="../../_static/theme-vendors.js"></script>
+      <script src="../../_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="../../genindex.html" />
+  <link rel="search" title="Search" href="../../search.html" />
+  <link rel="next" title="2. Verification and Validation" href="vnv.html" />
+  <link rel="prev" title="6. Bugs &amp; Feauture Requests" href="../user_manual/bugs.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="../../index.html" class="home-link">
+    
+      <img class="logo" src="../../_static/SimCenter_s3hark_logo.png" alt="doit logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link  router-link-active">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link  router-link-active">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="../../index.html#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="../../search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">User Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../license.html" class="reference internal ">Copyright and license</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/installation/installation.html" class="reference internal ">Installation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/quickstart/quickstart.html" class="reference internal ">Quick start</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/usage/usage.html" class="reference internal ">Usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/examples/examples.html" class="reference internal ">Examples</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../user_manual/bugs.html" class="reference internal ">Bugs & Feauture Requests</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">Technical Manual</a></span>
+      </p>
+      <ul class="current">
+        
+          <li class="toctree-l1 current"><a href="#" class="reference internal current">Theory and Implementation</a>
+
+            
+              <ul>
+                
+                  <li class="toctree-l2"><a href="#site-response-analysis-in-geotechnical-earthquake-engineering" class="reference internal">Site-Response Analysis in Geotechnical Earthquake Engineering</a></li>
+                
+                  <li class="toctree-l2"><a href="#basics-concepts-of-dynamics-of-porous-media" class="reference internal">Basics concepts of dynamics of porous media</a></li>
+                
+                  <li class="toctree-l2"><a href="#balance-laws" class="reference internal">Balance laws</a></li>
+                
+                  <li class="toctree-l2"><a href="#constitutive-laws" class="reference internal">Constitutive laws</a></li>
+                
+              </ul>
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="vnv.html" class="reference internal ">Verification and Validation</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="../../index.html#available-material-models">Developer Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="../developer_manual/how_to_build/how_to_build.html" class="reference internal ">How to Build</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/architecture/architecture.html" class="reference internal ">Software Architecture</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/how_to_extend/how_to_extend.html" class="reference internal ">How to Extend</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="../developer_manual/coding_style/coding_style.html" class="reference internal ">Coding Style</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+          
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li><span class="section-number">1. </span>Theory and Implementation</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="prev">
+    <a href="../user_manual/bugs.html"
+       title="previous chapter">← <span class="section-number">6. </span>Bugs &amp; Feauture Requests</a>
+  </li>
+  <li class="next">
+    <a href="vnv.html"
+       title="next chapter"><span class="section-number">2. </span>Verification and Validation →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="theory-and-implementation">
+<h1><span class="section-number">1. </span>Theory and Implementation<a class="headerlink" href="#theory-and-implementation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="site-response-analysis-in-geotechnical-earthquake-engineering">
+<h2><span class="section-number">1.1. </span>Site-Response Analysis in Geotechnical Earthquake Engineering<a class="headerlink" href="#site-response-analysis-in-geotechnical-earthquake-engineering" title="Permalink to this headline">¶</a></h2>
+<p>Earthquake loads are transferred to the foundations of the structures,
+in the form of accelerations at the ground-structure interfaces.
+Therefore, an essential part of earthquake engineering is to determine the surficial ground motion.</p>
+<p>In earthquake scenarios, the ruptures of faults generate seismic wave, which is
+then transmitted and modified by path effects (wave scattering, anelastic attenuation, and geometric spreading)
+and further site effects when it is transmitted through soil layers before it reaches the ground surface.
+Site effects are known to have a profound influence on surficial ground motions due to the variabilities in surficial geology
+and the complexity in its characterization, especially when the site needed to be considered with nonlinearity.</p>
+<p>Site response analysis is widely employed to quantify site effects.
+It simulates the propagation of seismic waves from the bed rock to the ground surface, going through soil deposits.</p>
+<p>One-dimensional (1D) site response analyses are simplified methods that are commonly used due to their simplicity and cost efficiency.
+These simplified methods employ constitutive models based on a variation of the hyperbolic model to represent the initial stress-strain backbone curve.</p>
+<p><em>s</em><sup>3</sup><em>hark</em> has been developed to allow site response analyses to be performed taking into account:
+(1) the nonlinear anisotropic and hysteretic stress-strain behavior of the soil materials; and
+(2) the effects of the transient flow of the pore water through the soil strata.
+The procedures used (field and constitutive equations) are general and applicable to multidimensional situations.</p>
+</div>
+<div class="section" id="basics-concepts-of-dynamics-of-porous-media">
+<h2><span class="section-number">1.2. </span>Basics concepts of dynamics of porous media<a class="headerlink" href="#basics-concepts-of-dynamics-of-porous-media" title="Permalink to this headline">¶</a></h2>
+<p>Soils consist of an assemblage of particles with different sizes and shapes which form a skeleton whose voids
+are filled with water and air or gas. The word “soil” therefore implies a mixture of assorted mineral grains
+with various fluids.
+Hence, soil in general must be looked at as a one (dry soil) or two (saturated soil) or
+multiphase (partially saturated soil) material whose state is to be described by the stresses and displacements (velocities) within each phase.
+There are still great uncertainties on how to deal analytically with partly saturated soils.
+Attention is therefore restricted in the following to dry and fully saturated soils.
+The stresses carried by the soil skeleton are conventionally called “effective stresses” in the soil mechanics literature
+(see e.g., <a class="bibtex reference internal" href="#terzaghi1943theoretical" id="id1">[Ter43]</a>),
+and those in the fluid phase are called the “pore fluid pressures”.</p>
+<p>In a saturated soil, when free drainage conditions prevail, the steady state pore-fluid pressures
+depend only on the hydraulic conditions and are independent of the soil skeleton response to external loads.
+Therefore, in that case, a single phase continuum description of soil behavior is certainly adequate.
+Similarly, a single phase description is also adequate when no drainage (i.e., no flow) conditions prevail.
+However, in intermediate cases in which some flow can take place, there is an interaction between the skeleton strains and the pore-fluid flow.
+The solution of these problems requires that soil behavior be analyzed by incorporating the effects of the transient flow of the pore-fluid through the voids,
+and therefore requires that a two phase continuum formulation be available for porous media.
+Such a theory was first developed by Biot <a class="bibtex reference internal" href="#biot1955theory" id="id2">[Bio55]</a> for an elastic porous medium.
+However, it is observed experimentally that the stress-strain strength behavior of the soil skeleton is strongly non-linear, anisotropic, hysteretic and path-dependent.
+An extension to the Biot’s theory into the non-linear anelastic range is therefore necessary in order to analyze the transient response of soil deposits.
+This extension has acquired considerable importance in recent years due to the increased concern with the dynamic behavior of saturated soil deposits and
+associated liquefaction of saturated sand deposits under seismic loading conditions.
+Such an extension of Biot’s formulation <a class="bibtex reference internal" href="#prevost1980mechanics" id="id3">[Prevost80]</a> has been developed in recent years.
+In the extended theory, soil is viewed as a multi-phase medium (Green and Naghdi <a class="bibtex reference internal" href="#green1965dynamical" id="id4">[GN65]</a>,
+and Eringen and Ingram <a class="bibtex reference internal" href="#eringen1965continuum" id="id5">[EI65]</a><a class="bibtex reference internal" href="#ingram1967continuum" id="id6">[IE67]</a>).
+General mixture results can be shown through formal linearization of the field and constitutive equations,
+to reduce to Biot’s linear poroelastic model.</p>
+</div>
+<div class="section" id="balance-laws">
+<h2><span class="section-number">1.3. </span>Balance laws<a class="headerlink" href="#balance-laws" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="darcy-s-laws">
+<h3>Darcy’s laws<a class="headerlink" href="#darcy-s-laws" title="Permalink to this headline">¶</a></h3>
+<p>From experiments conducted in 1857, Darcy found that the specific discharge of a fluid in
+a porous media is proportional to the loss of water head.</p>
+<div class="math notranslate nohighlight" id="equation-eq-darcy">
+<span class="eqno">(1.3.1)<a class="headerlink" href="#equation-eq-darcy" title="Permalink to this equation">¶</a></span>\[\boldsymbol{q} = -\frac{\kappa}{\mu}(\nabla p - \rho_f\boldsymbol{g})\]</div>
+<p>where <span class="math notranslate nohighlight">\(\kappa\)</span> is the intrinsic permeability of the porous material,
+<span class="math notranslate nohighlight">\(\mu\)</span> is the viscosity of the fluid, and <span class="math notranslate nohighlight">\(g\)</span> is the gravity vector.
+The value of permeability depends upon the size of the voids.
+As a first approximation one may consider that the permeability
+<span class="math notranslate nohighlight">\(\kappa\)</span> is proportional to the square of the particle size.</p>
+</div>
+<div class="section" id="effective-stress">
+<h3>Effective stress<a class="headerlink" href="#effective-stress" title="Permalink to this headline">¶</a></h3>
+<p>Stresses applied to a saturated porous media are distributed to the solid skeleton and the pore fluid according to a propotion.
+The former stresses are responsible for skeletal deformations, this is why they are called effective.
+Considering that stresses are positive when they are tensile and pressure is positive when it is compressive,
+the principle of effective stress is written in index notation as</p>
+<div class="math notranslate nohighlight" id="equation-eq-effective-stress">
+<span class="eqno">(1.3.2)<a class="headerlink" href="#equation-eq-effective-stress" title="Permalink to this equation">¶</a></span>\[\sigma = \sigma^{\prime} - \alpha p\]</div>
+<p>The parameter <span class="math notranslate nohighlight">\(\alpha\)</span> is Biot’s coefficient.
+In 1941, it is defined as <a class="bibtex reference internal" href="#biot1941general" id="id7">[Bio41]</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-biot-1">
+<span class="eqno">(1.3.3)<a class="headerlink" href="#equation-eq-biot-1" title="Permalink to this equation">¶</a></span>\[\alpha = \frac{K}{H}\]</div>
+<p>where <span class="math notranslate nohighlight">\(K\)</span> is the drained bulk modulus of the porous media,
+and <span class="math notranslate nohighlight">\(1/H\)</span> is the poroelastic expansion coefficient.
+In 1957, this parameter was redefined by Biot and Willis <a class="bibtex reference internal" href="#biot1957elastic" id="id8">[BW57]</a>
+in terms of jacketed compressibility and unjackedted compressibility.</p>
+<div class="math notranslate nohighlight" id="equation-eq-biot-2">
+<span class="eqno">(1.3.4)<a class="headerlink" href="#equation-eq-biot-2" title="Permalink to this equation">¶</a></span>\[\alpha = 1- \frac{\chi_s}{\chi}\]</div>
+<p>The jacketed compressibility coefficient, <span class="math notranslate nohighlight">\(\chi\)</span>, is the drained compressibility of the porous material.
+The unjacketed coefficient of compressibility, <span class="math notranslate nohighlight">\(\chi_s\)</span>, is the compressibility of the solid phase.</p>
+</div>
+<div class="section" id="balance-of-fluid-mass">
+<h3>Balance of fluid mass<a class="headerlink" href="#balance-of-fluid-mass" title="Permalink to this headline">¶</a></h3>
+<p>One of the major principles of the theory of poromechanics is that the mass of the two constituent, solid particles and the fluid,
+must be conserved. Its formulation is presented as following.</p>
+<div class="align-center figure" id="id17">
+<span id="infinitesimal"></span><img alt="../../_images/infinitesimal.png" src="../../_images/infinitesimal.png" />
+<p class="caption"><span class="caption-number">Fig. 1.3.1 </span><span class="caption-text">Fluid mass conservation of a infinitesimal unit</span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+</div>
+<p>Consider a porous medium, comprising a solid matrix (an assembly of soil particles, with a continuous pore space).
+The pore space is filled with a fluid.
+The average velocity of the fluid is denoted by <span class="math notranslate nohighlight">\(v_f\)</span> and the average velocity of the solid skeleton is denoted by <span class="math notranslate nohighlight">\(v_s\)</span>.
+The densities are denoted by <span class="math notranslate nohighlight">\(\rho_{f}\)</span> and <span class="math notranslate nohighlight">\(\rho_{s}\)</span>, respectively, and the porosity by <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<p>The equations of mass conservation of the infinitesimal unit can be established by considering the flow into and out of the unit (<a class="reference internal" href="#infinitesimal"><span class="std std-numref">Fig. 1.3.1</span></a>).
+The mass of the fluid in the infinitesimal unit with volume <span class="math notranslate nohighlight">\(V\)</span> is <span class="math notranslate nohighlight">\(n\rho_{f}V\)</span>.
+The increment of this mass per unit time can be calculated based on the net flux across the surfaces of the unit. Thus, the fluid mass balance equation is</p>
+<div class="math notranslate nohighlight" id="equation-eq-mass-balance-0">
+<span class="eqno">(1.3.5)<a class="headerlink" href="#equation-eq-mass-balance-0" title="Permalink to this equation">¶</a></span>\[\frac{\partial (n\rho_{f}V)}{\partial t} + \frac{\partial (n\rho_{f}v_{x})}{\partial x}V
++ \frac{\partial (n\rho_{f}v_{y})}{\partial y}V
++ \frac{\partial (n\rho_{f}v_{z})}{\partial z}V
++ Q_{m}V
+= 0\]</div>
+<p>Rewriting Equation <a class="reference internal" href="#equation-eq-mass-balance-0">(1.3.5)</a> in vector form leads to</p>
+<div class="math notranslate nohighlight" id="equation-eq-mass-balance-1">
+<span class="eqno">(1.3.6)<a class="headerlink" href="#equation-eq-mass-balance-1" title="Permalink to this equation">¶</a></span>\[  \frac{\partial (n\rho_f)}{\partial t} + \nabla \cdot (n\rho_{f}\boldsymbol{v}_f) + {Q_m} = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\boldsymbol{v}_f\)</span> is the vector expression for fluid velocity; <span class="math notranslate nohighlight">\(Q_m\)</span> is the fluid source.
+In order to decompose <span class="math notranslate nohighlight">\(\frac{\partial (n\rho_f)}{\partial t}\)</span> in Equation <a class="reference internal" href="#equation-eq-mass-balance-1">(1.3.6)</a>,
+a parameter, fluid compressibility, <span class="math notranslate nohighlight">\(\chi\)</span>, is introduced here.
+Fluid compressibility is related to the change in fluid pressure and the fractional change in fluid volume.
+Its definition is</p>
+<div class="math notranslate nohighlight" id="equation-eq-compressibility-def">
+<span class="eqno">(1.3.7)<a class="headerlink" href="#equation-eq-compressibility-def" title="Permalink to this equation">¶</a></span>\[\chi = - \frac{1}{V_f} \frac{\Delta_f}{\Delta_p}\]</div>
+<p>In a constant fluid, the continuity of mass requires that <span class="math notranslate nohighlight">\(\rho_{fr}V_{fr} = \rho_{fc}V_{fc}\)</span>, in which
+the subscription <span class="math notranslate nohighlight">\(f\)</span> represent ‘fluid’, <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(c\)</span> represent the reference and current configuration, respectively.
+Inserting the differential expressions <span class="math notranslate nohighlight">\(V_f = V_{fr} + \Delta V_f\)</span> and <span class="math notranslate nohighlight">\(\rho_f = \rho_{fr} + \Delta \rho_f\)</span> into the mass continuity equation produces
+<span class="math notranslate nohighlight">\(\frac{\Delta V_f}{V_{fr}} = - \frac{\Delta \rho_f}{\rho_f}\)</span>. In the assumption of small perturbations, i.e., change in <span class="math notranslate nohighlight">\(V\)</span> is neglected, the equation
+rewrites as</p>
+<div class="math notranslate nohighlight" id="equation-eq-continuity-fluid">
+<span class="eqno">(1.3.8)<a class="headerlink" href="#equation-eq-continuity-fluid" title="Permalink to this equation">¶</a></span>\[\frac{\partial V_f}{V_f} = - \frac{\partial \rho_f}{\rho_f}\]</div>
+<p>Equations <a class="reference internal" href="#equation-eq-compressibility-def">(1.3.7)</a> and <a class="reference internal" href="#equation-eq-continuity-fluid">(1.3.8)</a> facilitate the expression of <span class="math notranslate nohighlight">\(\frac{\partial \rho_f}{\partial t}\)</span> using fluid pressure <span class="math notranslate nohighlight">\(p\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-partial-rho-partial-t">
+<span class="eqno">(1.3.9)<a class="headerlink" href="#equation-eq-partial-rho-partial-t" title="Permalink to this equation">¶</a></span>\[\frac{\partial \rho_f}{\partial t} = \rho_f \chi \frac{\partial p}{\partial t}\]</div>
+<p>Therefore, the fluid mass balance equation <a class="reference internal" href="#equation-eq-mass-balance-1">(1.3.6)</a> rewrites as</p>
+<div class="math notranslate nohighlight" id="equation-eq-mass-balance-2">
+<span class="eqno">(1.3.10)<a class="headerlink" href="#equation-eq-mass-balance-2" title="Permalink to this equation">¶</a></span>\[  \frac{\partial n}{\partial t} + n\chi \frac{\partial p}{\partial t} + \nabla \cdot (n\boldsymbol{v}_f) + \frac{Q_m}{\rho_f} = 0\]</div>
+</div>
+<div class="section" id="balance-of-solid-mass">
+<h3>Balance of solid mass<a class="headerlink" href="#balance-of-solid-mass" title="Permalink to this headline">¶</a></h3>
+<p>In the infinitesimal unit, the mass of the solid skeleton is <span class="math notranslate nohighlight">\(m_s=(1-n)\rho_s V\)</span> and its relative density is <span class="math notranslate nohighlight">\((1-n)\rho_s\)</span>.
+Similar to the mass balance of fluid, the mass balance of solid is</p>
+<div class="math notranslate nohighlight" id="equation-eq-mass-balance-solid">
+<span class="eqno">(1.3.11)<a class="headerlink" href="#equation-eq-mass-balance-solid" title="Permalink to this equation">¶</a></span>\[  \frac{\partial [(1-n)\rho_s]}{\partial t} + \nabla \cdot [(1-n)\rho_{f}\boldsymbol{v}_s] = 0\]</div>
+<p>Consider the infinitesimal unit is loaded with an isotropic compressive stress <span class="math notranslate nohighlight">\(\Delta P\)</span> under undrained conditions.
+The mean stresses caused by the loading is</p>
+<div class="math notranslate nohighlight" id="equation-eq-meanstress">
+<span class="eqno">(1.3.12)<a class="headerlink" href="#equation-eq-meanstress" title="Permalink to this equation">¶</a></span>\[\Delta \sigma = - \Delta P\]</div>
+<p>In the following analysis, the load is divided into two stages when applied to the unit.
+In the first stage, the load only caused an increase of <span class="math notranslate nohighlight">\(\Delta p\)</span> in the pore pressure.
+In the second, the pore pressure will be kept unchanged, while the pressure on the unit will be increased with the magnitude of <span class="math notranslate nohighlight">\(\Delta P - \Delta p\)</span>.</p>
+<p>In the first stage, two definitions are useful: The unjacketed bulk compressibility of the solid phase</p>
+<div class="math notranslate nohighlight" id="equation-eq-cs">
+<span class="eqno">(1.3.13)<a class="headerlink" href="#equation-eq-cs" title="Permalink to this equation">¶</a></span>\[\chi_s = - \frac{1}{V} \frac{\Delta V}{\Delta p}\]</div>
+<p>and the unjacketed fluid compressibility</p>
+<div class="math notranslate nohighlight" id="equation-eq-c-phi">
+<span class="eqno">(1.3.14)<a class="headerlink" href="#equation-eq-c-phi" title="Permalink to this equation">¶</a></span>\[\chi_{\phi} = - \frac{1}{V_f} \frac{\Delta V_f}{\Delta f}\]</div>
+<p>The factional volume change of the solid phase is</p>
+<div class="math notranslate nohighlight" id="equation-eq-volumechange">
+<span class="eqno">(1.3.15)<a class="headerlink" href="#equation-eq-volumechange" title="Permalink to this equation">¶</a></span>\[\frac{\Delta V_s}{V_s} = \frac{\Delta V}{V_s} - \frac{\Delta V_p}{V_s}
+= \frac{\Delta V}{(1-n)V} - \frac{n \Delta V_p}{V_p}\]</div>
+<p>With Equations <a class="reference internal" href="#equation-eq-cs">(1.3.13)</a> and <a class="reference internal" href="#equation-eq-c-phi">(1.3.14)</a>, the volume change Equation <a class="reference internal" href="#equation-eq-volumechange">(1.3.15)</a> rewrites</p>
+<div class="math notranslate nohighlight" id="equation-eq-volumechange-rewrite">
+<span class="eqno">(1.3.16)<a class="headerlink" href="#equation-eq-volumechange-rewrite" title="Permalink to this equation">¶</a></span>\[\frac{\Delta V_s}{V_s} = \frac{n \chi_{\phi} \Delta p - \chi_s \Delta p}{1-n}\]</div>
+<p>In the second stage, the effective stress applied on the solid skeleton will be <span class="math notranslate nohighlight">\(\Delta \sigma ^{\prime} = (\Delta P - \Delta p)/(1-n)\)</span>.
+The definition of the compressibility of the solid phase <span class="math notranslate nohighlight">\(\chi_{s} = -\frac{1}{V_s} \frac{\Delta V_s}{\Delta \sigma^{\prime}}\)</span> yields</p>
+<div class="math notranslate nohighlight" id="equation-eq-compressibility-rewrite">
+<span class="eqno">(1.3.17)<a class="headerlink" href="#equation-eq-compressibility-rewrite" title="Permalink to this equation">¶</a></span>\[\frac{\Delta V_s}{V_s} = \frac{-\chi_s(\Delta P - \Delta p)}{1-n}\]</div>
+<p>Adding Equations <a class="reference internal" href="#equation-eq-volumechange-rewrite">(1.3.16)</a> and <a class="reference internal" href="#equation-eq-compressibility-rewrite">(1.3.17)</a> and with the help of Equation <a class="reference internal" href="#equation-eq-meanstress">(1.3.12)</a> yields</p>
+<div class="math notranslate nohighlight" id="equation-eq-compressibility-rewrite-final">
+<span class="eqno">(1.3.18)<a class="headerlink" href="#equation-eq-compressibility-rewrite-final" title="Permalink to this equation">¶</a></span>\[\frac{\Delta V_s}{V_s} = \frac{\chi_s \Delta \sigma + n \chi_{\phi} \Delta p }{1-n}\]</div>
+<p>Similar to Equation <a class="reference internal" href="#equation-eq-continuity-fluid">(1.3.8)</a>, the continuity of the solid phase requires</p>
+<div class="math notranslate nohighlight" id="equation-eq-continuity-solid">
+<span class="eqno">(1.3.19)<a class="headerlink" href="#equation-eq-continuity-solid" title="Permalink to this equation">¶</a></span>\[\frac{\partial V_s}{V_s} = - \frac{\partial \rho_s}{\rho_s}\]</div>
+<p>Combining Equations <a class="reference internal" href="#equation-eq-compressibility-rewrite-final">(1.3.18)</a> and <a class="reference internal" href="#equation-eq-continuity-solid">(1.3.19)</a> yields:
+the constitutive law for the solid phase</p>
+<div class="math notranslate nohighlight" id="equation-eq-constitutive-solid">
+<span class="eqno">(1.3.20)<a class="headerlink" href="#equation-eq-constitutive-solid" title="Permalink to this equation">¶</a></span>\[\frac{\partial \rho_s}{\partial t} = \frac{\rho_s}{1-n}
+(-\chi_s \frac{\partial \sigma}{\partial t} -n \chi_{\phi} \frac{\partial p}{\partial t})\]</div>
+<p>Inserting Equation <a class="reference internal" href="#equation-eq-constitutive-solid">(1.3.20)</a> into Equation <a class="reference internal" href="#equation-eq-mass-balance-solid">(1.3.11)</a>
+gives</p>
+<div class="math notranslate nohighlight" id="equation-eq-balance-solid-s">
+<span class="eqno">(1.3.21)<a class="headerlink" href="#equation-eq-balance-solid-s" title="Permalink to this equation">¶</a></span>\[-\frac{\partial n}{\partial t} +
+(-\chi_s \frac{\partial \sigma}{\partial t} -n \chi_{\phi} \frac{\partial p}{\partial t})
++\nabla \cdot \boldsymbol{v}_s
+= \nabla \cdot (n\boldsymbol{v}_s)\]</div>
+<p>Noticing the fluid mass balance Equation <a class="reference internal" href="#equation-eq-mass-balance-2">(1.3.10)</a> can be expressed with <span class="math notranslate nohighlight">\(\boldsymbol{v}_s\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-mass-balance-3">
+<span class="eqno">(1.3.22)<a class="headerlink" href="#equation-eq-mass-balance-3" title="Permalink to this equation">¶</a></span>\[  \frac{\partial n}{\partial t} + n\chi \frac{\partial p}{\partial t}
+  + \nabla \cdot [n(\boldsymbol{v}_f - \boldsymbol{v}_s)]
+  + \nabla \cdot (n\boldsymbol{v}_s)
+  + \frac{Q_m}{\rho_f} = 0\]</div>
+<p>Substituting Equation <a class="reference internal" href="#equation-eq-balance-solid-s">(1.3.21)</a> into the fluid mass balance Equation
+<a class="reference internal" href="#equation-eq-mass-balance-3">(1.3.22)</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-balance-fluid-f">
+<span class="eqno">(1.3.23)<a class="headerlink" href="#equation-eq-balance-fluid-f" title="Permalink to this equation">¶</a></span>\[\nabla \cdot \boldsymbol{v}_s
++ n(\chi - \chi_{\phi}) \frac{\partial p}{\partial t}
+-\chi_s \frac{\partial \sigma}{\partial t}
++ \frac{Q_m}{\rho_f}
+= - \nabla \cdot [n(\boldsymbol{v}_f - \boldsymbol{v}_s)]\]</div>
+<p>Noticing <span class="math notranslate nohighlight">\(n(\boldsymbol{v}_f - \boldsymbol{v}_s) = \boldsymbol{q}\)</span>
+and <span class="math notranslate nohighlight">\(\nabla \cdot \boldsymbol{v}_s = \frac{\partial \epsilon}{\partial t}\)</span> is the time derivative of the volumetric strain,
+Equation <a class="reference internal" href="#equation-eq-balance-fluid-f">(1.3.23)</a> becomes</p>
+<div class="math notranslate nohighlight" id="equation-eq-balance-fluid-f2">
+<span class="eqno">(1.3.24)<a class="headerlink" href="#equation-eq-balance-fluid-f2" title="Permalink to this equation">¶</a></span>\[\frac{\partial \epsilon}{\partial t}
++ n(\chi - \chi_{\phi}) \frac{\partial p}{\partial t}
+-\chi_s \frac{\partial \sigma}{\partial t}
++ \frac{Q_m}{\rho_f}
+= - \nabla \cdot \boldsymbol{q}\]</div>
+<p>Substituting the stress balance Equation <a class="reference internal" href="#equation-eq-effective-stress">(1.3.2)</a> and <span class="math notranslate nohighlight">\(\sigma^{\prime} = \frac{\epsilon}{C}\)</span> into Equation <a class="reference internal" href="#equation-eq-balance-fluid-f2">(1.3.24)</a>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-balance-fluid-f3">
+<span class="eqno">(1.3.25)<a class="headerlink" href="#equation-eq-balance-fluid-f3" title="Permalink to this equation">¶</a></span>\[\alpha\frac{\partial \epsilon}{\partial t}
++ S \frac{\partial p}{\partial t}
++ \frac{Q_m}{\rho_f}
+= - \nabla \cdot \boldsymbol{q}\]</div>
+<p>in which <span class="math notranslate nohighlight">\(S\)</span> is the dimensionless storage coefficient.</p>
+<p>Substituting Darcy’s law <a class="reference internal" href="#equation-eq-darcy">(1.3.1)</a> into <a class="reference internal" href="#equation-eq-balance-fluid-f3">(1.3.25)</a> yields the final form of the fluid mass conversation equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-balance-fluid-f4">
+<span class="eqno">(1.3.26)<a class="headerlink" href="#equation-eq-balance-fluid-f4" title="Permalink to this equation">¶</a></span>\[\alpha\frac{\partial \epsilon}{\partial t}
++ S \frac{\partial p}{\partial t}
++ \frac{Q_m}{\rho_f}
+= \nabla \cdot (\frac{\kappa}{\mu} \nabla p)\]</div>
+<p>Note that the divergence of <span class="math notranslate nohighlight">\(\rho_f\boldsymbol{g}\)</span> vanished in <a class="reference internal" href="#equation-eq-balance-fluid-f4">(1.3.26)</a>.</p>
+</div>
+</div>
+<div class="section" id="constitutive-laws">
+<h2><span class="section-number">1.4. </span>Constitutive laws<a class="headerlink" href="#constitutive-laws" title="Permalink to this headline">¶</a></h2>
+<p>The constitutive laws that are available in <em>s</em><sup>3</sup><em>hark</em> are listed in Table <a class="reference internal" href="#tabmat"><span class="std std-numref">Table 1.4.1</span></a>.
+The derivation of individual constitutive law can be found in the corresponding reference.</p>
+<table border="1" class="docutils" id="id18">
+<span id="tabmat"></span><caption><span class="caption-number">Table 1.4.1 </span><span class="caption-text">Available material models</span><a class="headerlink" href="#id18" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Material models</th>
+<th class="head">Usage</th>
+<th class="head">Development Status</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ElasticIsotropic</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PM4Sand</td>
+<td>2D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>PM4Silt</td>
+<td>2D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PressureIndependMultiYield</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>PressureDependMultiYield</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PressureDependMultiYield02</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>ManzariDafalias</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>Borja-Amies</td>
+<td>3D</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="elasticisotropic">
+<h3>ElasticIsotropic<a class="headerlink" href="#elasticisotropic" title="Permalink to this headline">¶</a></h3>
+<p>In the application, choosing <cite>Elastic</cite> as the material model will bring up the editing tab for this model.</p>
+</div>
+<div class="section" id="pm4sand">
+<h3>PM4Sand<a class="headerlink" href="#pm4sand" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>PM4Sand</cite> as the material model will bring up the editing tab for the PM4Sand model.</p>
+<p>The sand plasticity model PM4Sand (version 3) <a class="bibtex reference internal" href="#boulanger2015pm4sand" id="id9">[BZ15]</a> follows the basic framework of the stress-ratio controlled,
+critical state compatible,
+bounding surface plasticity model for sand presented by <a class="bibtex reference internal" href="#dafalias2004simple" id="id10">[DM04]</a>.
+Modifications to the model were developed by <a class="bibtex reference internal" href="#boulanger2015pm4sand" id="id11">[BZ15]</a> to improve its ability
+to approximate the stress-strain responses important to geotechnical earthquake engineering applications;
+in essence, the model was calibrated at the equation level to provide for better approximation of the trends observed across a set of
+experimentally- and case history-based design correlations.
+The model is shown to provide reasonable approximations of desired behaviors and to be relatively easy to calibrate.</p>
+</div>
+<div class="section" id="pm4silt">
+<h3>PM4Silt<a class="headerlink" href="#pm4silt" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>PM4Silt</cite> as the material model will bring up the editing tab for this model.</p>
+<p>PM4Silt <a class="bibtex reference internal" href="#boulanger2018pm4silt" id="id12">[BZ18]</a> is a plasticity model for representing low-plasticity silts and clays in geotechnical
+earthquake engineering applications.
+The PM4Silt model builds on the framework of the stress-ratio controlled, critical state compatible,
+bounding surface plasticity PM4Sand model. Modifications to the model were developed and implemented to improve instability
+to approximate undrained monotonic and cyclic loading responses of low-plasticity silts and clays, as opposed to those for
+purely nonplastic silts or sands. Emphasis was given to obtaining reasonable approximations of undrained monotonic shear strengths,
+undrained cyclic shear strengths, and shear modulus reduction and hysteretic damping responses across a range of initial static shear
+stress and overburden stress conditions. The model does not include a cap, and therefore is not suited for simulating consolidation
+settlements or strength evolution with consolidation stress history. The model is cast in terms of the state parameter relative to a
+linear critical state line in void ratio versus logarithm of mean effective stress. The primary input parameters are the undrained
+shear strength ratio (or undrained shear strength), the shear modulus coefficient, the contraction rate parameter, and an optional
+post-strong-shaking shear strength reduction factor.</p>
+</div>
+<div class="section" id="pressureindependmultiyield">
+<h3>PressureIndependMultiYield<a class="headerlink" href="#pressureindependmultiyield" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>PIMY</cite> as the material model will bring up the editing tab for this model.
+PressureIndependMultiYield material <a class="bibtex reference internal" href="#gu2009finite" id="id13">[GCEY09]</a> is an elastic-plastic material in which plasticity exhibits only
+in the deviatoric stress-strain response. The volumetric stress-strain response is linear-elastic and is
+independent of the deviatoric response.
+This material is implemented to simulate monotonic or cyclic response of materials whose shear behavior
+is insensitive to the confinement change. Such materials include, for example, organic soils or clay under
+fast (undrained) loading conditions.</p>
+</div>
+<div class="section" id="pressuredependmultiyield-and-pressuredependmultiyield02">
+<h3>PressureDependMultiYield and PressureDependMultiYield02<a class="headerlink" href="#pressuredependmultiyield-and-pressuredependmultiyield02" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>PDMY</cite> or <cite>PDMY02</cite> as the material model will bring up the editing tab for these models.</p>
+<p>PressureDependMultiYield and PressureDependMultiYield02 materials <a class="bibtex reference internal" href="#yang2003computational" id="id14">[YEP03]</a> are elastic-plastic material for
+simulating the essential response characteristics of pressure sensitive soil mate- rials under general loading conditions.
+Such characteristics include dilatancy (shear-induced volume contraction or dilation) and non-flow liquefaction (cyclic mobility),
+typically exhibited in sands or silts during monotonic or cyclic loading.</p>
+</div>
+<div class="section" id="manzari-dafalias">
+<h3>Manzari-Dafalias<a class="headerlink" href="#manzari-dafalias" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>Manzari-Dafalias</cite> as the material model will bring up the editing tab for this model.</p>
+<p>Manzari Dafalias <a class="bibtex reference internal" href="#dafalias2004simple" id="id15">[DM04]</a> is a stress-ratio controlled, critical state compatible, sand plasticity model.
+A fabric-dilatancy related quantity, scalar valued in the triaxial and tensor valued in generalized stress space,
+which is instrumental in modeling macroscopically the effect of fabric changes during the dilatant phase of deformation
+on the subsequent contractant response upon load increment reversals, and the ensuing realistic simulation of the sand
+behavior under undrained cyclic loading. The dependence of the plastic strain rate direction on a modified Lode angle in
+the multiaxial generalization enables it to produce realistic stress-strain simulations in non-triaxial conditions.
+A very systematic connection between the simple triaxial and the general multi-axial formulation makes it possible to
+use correctly the model parameters of the former in the implementation of the latter.</p>
+</div>
+<div class="section" id="borja-amies">
+<h3>Borja-Amies<a class="headerlink" href="#borja-amies" title="Permalink to this headline">¶</a></h3>
+<p>Choosing <cite>J2Bounding</cite> as the material model will bring up the editing tab for this model.</p>
+<p>Borja-Amies <a class="bibtex reference internal" href="#borja1994multiaxial" id="id16">[BA94]</a> is a total stress-based bounding surface plasticity model for clays developed
+to accommodate multiaxial stress reversals.
+The model is constructed based on the idea of a vanishing elastic region undergoing pure translation inside a bounding surface,
+and an interpolation function for hardening modulus which varies with stress distance of the elastic region from the unloading point.
+Central to the development of the model are the general criteria for loading and unloading, which are phrased based upon the
+simple argument that with continued loading the hardening modulus should decrease monotonically with deformation.
+Combined with numerical integration of the elastoplastic constitutive equations in a form suitable for a robust computer implementation,
+the model is applied to cohesive soils undergoing undrained stress reversals and cyclic loading. With a suitable choice of the
+interpolation function for the hardening modulus, it is shown that existing one-dimensional nonlinear laws for soils can be replicated,
+such as the hyperbolic, exponential, the Davidenkov, and even the Ramberg-Osgood models.
+Specifically, the appropriateness of the exponential hardening function for cohesive soils is investigated and its parameters
+determined for some clays and silts for use in dynamic soil-structure interaction modeling.</p>
+<p id="bibtex-bibliography-common/technical_manual/theory-0"><table class="bibtex docutils citation" frame="void" id="biot1941general" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id7">[Bio41]</a></td><td>Maurice&nbsp;A Biot. General theory of three-dimensional consolidation. <em>Journal of applied physics</em>, 12(2):155–164, 1941.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="biot1955theory" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[Bio55]</a></td><td>Maurice&nbsp;A Biot. Theory of elasticity and consolidation for a porous anisotropic solid. <em>Journal of applied physics</em>, 26(2):182–185, 1955.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="biot1957elastic" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id8">[BW57]</a></td><td>Maurice&nbsp;A Biot and DG&nbsp;Willis. The elastic coeff cients of the theory of consolidation. <em>J Appl Mech</em>, 15:594–601, 1957.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="borja1994multiaxial" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id16">[BA94]</a></td><td>Ronaldo&nbsp;I Borja and Alexander&nbsp;P Amies. Multiaxial cyclic plasticity model for clays. <em>Journal of geotechnical engineering</em>, 120(6):1051–1070, 1994.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="boulanger2015pm4sand" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BZ15]</td><td><em>(<a class="fn-backref" href="#id9">1</a>, <a class="fn-backref" href="#id11">2</a>)</em> R.&nbsp;W Boulanger and K&nbsp;Ziotopoulou. Pm4sand (version 3): a sand plasticity model for earthquake engineering applications. <em>Center for Geotechnical Modeling Report No. UCD/CGM-15/01, Department of Civil and Environmental Engineering, University of California, Davis, California</em>, 2015.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="boulanger2018pm4silt" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id12">[BZ18]</a></td><td>Ross&nbsp;W Boulanger and Katerina Ziotopoulou. Pm4silt (version 1): a silt plasticity model for earthquake engineering applications. <em>Report No. UCD/CGM-18/01, Center for Geotechnical Modeling, Department of Civil and Environmental Engineering, University of California, Davis, CA, 108 pp.</em>, 2018.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="dafalias2004simple" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DM04]</td><td><em>(<a class="fn-backref" href="#id10">1</a>, <a class="fn-backref" href="#id15">2</a>)</em> Yannis&nbsp;F Dafalias and Majid&nbsp;T Manzari. Simple plasticity sand model accounting for fabric change effects. <em>Journal of Engineering mechanics</em>, 130(6):622–634, 2004.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="eringen1965continuum" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[EI65]</a></td><td>A&nbsp;Cemal Eringen and John&nbsp;D Ingram. A continuum theory of chemically reacting media—i. <em>International Journal of Engineering Science</em>, 3(2):197–212, 1965.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="green1965dynamical" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id4">[GN65]</a></td><td>Albert&nbsp;Edward Green and Paul&nbsp;Mansour Naghdi. A dynamical theory of interacting continua. <em>International journal of engineering Science</em>, 3(2):231–241, 1965.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="gu2009finite" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id13">[GCEY09]</a></td><td>Quan Gu, Joel&nbsp;P Conte, Ahmed Elgamal, and Zhaohui Yang. Finite element response sensitivity analysis of multi-yield-surface j2 plasticity model by direct differentiation method. <em>Computer methods in applied mechanics and engineering</em>, 198(30-32):2272–2285, 2009.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="ingram1967continuum" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id6">[IE67]</a></td><td>John&nbsp;D Ingram and A&nbsp;Cemal Eringen. A continuum theory of chemically reacting media—ii constitutive equations of reacting fluid mixtures. <em>International Journal of Engineering Science</em>, 5(4):289–322, 1967.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="prevost1980mechanics" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id3">[Prevost80]</a></td><td>Jean&nbsp;H Prévost. Mechanics of continuous porous media. <em>International Journal of Engineering Science</em>, 18(6):787–800, 1980.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="terzaghi1943theoretical" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[Ter43]</a></td><td>Karl Terzaghi. Theoretical soil mechanics. johnwiley &amp; sons. <em>New York</em>, pages 11–15, 1943.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="yang2003computational" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id14">[YEP03]</a></td><td>Zhaohui Yang, Ahmed Elgamal, and Ender Parra. Computational model for cyclic mobility and associated shear deformation. <em>Journal of Geotechnical and Geoenvironmental Engineering</em>, 129(12):1119–1127, 2003.</td></tr>
+</tbody>
+</table>
+</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="prev">
+    <a href="../user_manual/bugs.html"
+       title="previous chapter">← <span class="section-number">6. </span>Bugs &amp; Feauture Requests</a>
+  </li>
+  <li class="next">
+    <a href="vnv.html"
+       title="next chapter"><span class="section-number">2. </span>Verification and Validation →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, NHERI SimCenter.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+
+
+
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

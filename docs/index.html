@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+      <title>Site-specific Seismic Hazard Analysis &amp; Research Kit (s3hark)</title>
+    
+      <link rel="stylesheet" href="_static/pygments.css">
+      <link rel="stylesheet" href="_static/theme.css">
+      <link rel="stylesheet" href="_static/sphinx_press_theme.css">
+          <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+      
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+
+      <!-- sphinx script_files -->
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="_static/custom.js"></script>
+        <script type="text/javascript" src="https://sidecar.gitter.im/dist/sidecar.v1.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+      
+      <script src="_static/theme-vendors.js"></script>
+      <script src="_static/theme.js" defer></script>
+    
+  <link rel="index" title="Index" href="genindex.html" />
+  <link rel="search" title="Search" href="search.html" />
+  <link rel="next" title="1. Copyright and license" href="common/license.html" /> 
+  </head>
+
+  <body>
+    <div id="app" class="theme-container" :class="pageClasses"><navbar @toggle-sidebar="toggleSidebar">
+  <router-link to="#" class="home-link">
+    
+      <img class="logo" src="_static/SimCenter_s3hark_logo.png" alt="doit logo"/>
+    
+  </router-link>
+
+  <div class="links">
+    <navlinks class="can-hide">
+
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+    </navlinks>
+  </div>
+</navbar>
+
+      
+      <div class="sidebar-mask" @click="toggleSidebar(false)">
+      </div>
+        <sidebar @toggle-sidebar="toggleSidebar">
+          
+          <navlinks>
+            
+
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         User Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         Technical Manual
+      </a>
+    </div>
+  
+    <div class="nav-item">
+      <a href="#available-material-models"
+         class="nav-link ">
+         Developer Manual
+      </a>
+    </div>
+  
+
+
+
+            
+          </navlinks><div id="searchbox" class="searchbox" role="search">
+  <div class="caption"><span class="caption-text">Quick search</span>
+    <div class="searchformwrapper">
+      <form class="search" action="search.html" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+        <input type="hidden" name="check_keywords" value="yes" />
+        <input type="hidden" name="area" value="default" />
+      </form>
+    </div>
+  </div>
+</div><div class="sidebar-links" role="navigation" aria-label="main navigation">
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#available-material-models">User Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="common/license.html" class="reference internal ">Copyright and license</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/user_manual/installation/installation.html" class="reference internal ">Installation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/user_manual/quickstart/quickstart.html" class="reference internal ">Quick start</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/user_manual/usage/usage.html" class="reference internal ">Usage</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/user_manual/examples/examples.html" class="reference internal ">Examples</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/user_manual/bugs.html" class="reference internal ">Bugs & Feauture Requests</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#available-material-models">Technical Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="common/technical_manual/theory.html" class="reference internal ">Theory and Implementation</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/technical_manual/vnv.html" class="reference internal ">Verification and Validation</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+    <div class="sidebar-group">
+      <p class="caption">
+        <span class="caption-text"><a href="#available-material-models">Developer Manual</a></span>
+      </p>
+      <ul class="">
+        
+          <li class="toctree-l1 "><a href="common/developer_manual/how_to_build/how_to_build.html" class="reference internal ">How to Build</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/developer_manual/architecture/architecture.html" class="reference internal ">Software Architecture</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/developer_manual/how_to_extend/how_to_extend.html" class="reference internal ">How to Extend</a>
+
+            
+          </li>
+
+        
+          <li class="toctree-l1 "><a href="common/developer_manual/coding_style/coding_style.html" class="reference internal ">Coding Style</a>
+
+            
+          </li>
+
+        
+      </ul>
+    </div>
+  
+</div>
+          
+        </sidebar>
+
+      <page>
+          <div class="body-header" role="navigation" aria-label="navigation">
+  
+  <ul class="breadcrumbs">
+    <li><a href="#">Docs</a> &raquo;</li>
+    
+    <li>Site-specific Seismic Hazard Analysis &amp; Research Kit (<em>s</em><sup>3</sup><em>hark</em>)</li>
+  </ul>
+  
+
+  <ul class="page-nav">
+  <li class="next">
+    <a href="common/license.html"
+       title="next chapter"><span class="section-number">1. </span>Copyright and license →</a>
+  </li>
+</ul>
+  
+</div>
+<hr>
+          <div class="content" role="main">
+            
+  <div class="section" id="site-specific-seismic-hazard-analysis-research-kit-appname">
+<h1>Site-specific Seismic Hazard Analysis &amp; Research Kit (<em>s</em><sup>3</sup><em>hark</em>)<a class="headerlink" href="#site-specific-seismic-hazard-analysis-research-kit-appname" title="Permalink to this headline">¶</a></h1>
+<a class="reference internal image-reference" href="_images/SRT.png"><img alt="SRT" src="_images/SRT.png" style="width: 700px;" /></a>
+<div class="section" id="what-is-appname">
+<h2>What is <em>s</em><sup>3</sup><em>hark</em><a class="headerlink" href="#what-is-appname" title="Permalink to this headline">¶</a></h2>
+<p><em>s</em><sup>3</sup><em>hark</em> is the acronym of site-specific seismic hazard analysis and research kit.
+This tool focuses on simulating wave propagation along soil depth using finite element (FE) method.
+The intended audience for s3hark is researchers and practitioners interested in performing site-specific analysis of soil in response to earthquakes,
+and educators interested in teaching site response analysis in their classes.
+The tool provides a friendly interface for users to input and modify soil layers using tables,
+while the built soil profile and the FE mesh being visualized simultaneously.
+Results including acceleration, velocity, displacement, pore pressure, spectral acceleration, etc.,
+are visualized for the soil profile and for each node as well, from which the user can comprehend
+the wave propagation and liquefaction status along the soil depth.</p>
+</div>
+<div class="section" id="features-of-appname">
+<h2>Features of <em>s</em><sup>3</sup><em>hark</em><a class="headerlink" href="#features-of-appname" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>2D and 3D elements for dynamic analysis of fluid saturated porous media</li>
+<li>Advanced linear / nonlinear soil material models</li>
+<li>Total stress / effective stress analysis</li>
+<li>Bi-directional motions</li>
+<li>Flat / slope free field analysis</li>
+<li>Finite rigidity of the bedrock</li>
+</ul>
+</div>
+<div class="section" id="available-material-models">
+<h2>Available material models<a class="headerlink" href="#available-material-models" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">Available material models</span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Material models</th>
+<th class="head">Usage</th>
+<th class="head">Development status</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>ElasticIsotropic</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PM4Sand</td>
+<td>2D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>PM4Silt</td>
+<td>2D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PressureIndependMultiYield</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>PressureDependMultiYield</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>PressureDependMultiYield02</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-even"><td>ManzariDafalias</td>
+<td>2D/3D</td>
+<td>✓</td>
+</tr>
+<tr class="row-odd"><td>Borja-Amies</td>
+<td>3D</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound" id="lbl-user-manual">
+<p class="caption"><span class="caption-text">User Manual</span><a class="headerlink" href="#lbl-user-manual" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/license.html">1. Copyright and license</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/installation/installation.html">2. Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/quickstart/quickstart.html">3. Quick start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/usage/usage.html">4. Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/examples/examples.html">5. Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/user_manual/bugs.html">6. Bugs &amp; Feauture Requests</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="lbl-technical-manual">
+<p class="caption"><span class="caption-text">Technical Manual</span><a class="headerlink" href="#lbl-technical-manual" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/technical_manual/theory.html">1. Theory and Implementation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/technical_manual/vnv.html">2. Verification and Validation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound" id="lbl-developer-manual">
+<p class="caption"><span class="caption-text">Developer Manual</span><a class="headerlink" href="#lbl-developer-manual" title="Permalink to this toctree">¶</a></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="common/developer_manual/how_to_build/how_to_build.html">1. How to Build</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/developer_manual/architecture/architecture.html">2. Software Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/developer_manual/how_to_extend/how_to_extend.html">3. How to Extend</a></li>
+<li class="toctree-l1"><a class="reference internal" href="common/developer_manual/coding_style/coding_style.html">4. Coding Style</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-cite">
+<h2>How to cite<a class="headerlink" href="#how-to-cite" title="Permalink to this headline">¶</a></h2>
+<p>Charles Wang, Frank McKenna, Peter Mackenzie-Helnwein, Adam Zsarnoczay, Wael Elhaddad, Michael Gardner, &amp; Pedro Arduino. (2019, October 11).
+NHERI-SimCenter/s3hark: Release v1.1.2 (Version 1.1.2). Zenodo. <a class="reference external" href="http://doi.org/10.5281/zenodo.3483211">http://doi.org/10.5281/zenodo.3483211</a></p>
+</div>
+<div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<p>The <em>s</em><sup>3</sup><em>hark</em> application is distributed under the BSD 3-Clause license, see <a class="reference internal" href="common/license.html#lbl-license"><span class="std std-ref">Copyright and license</span></a> for details.</p>
+</div>
+<div class="section" id="acknowledgement">
+<h2>Acknowledgement<a class="headerlink" href="#acknowledgement" title="Permalink to this headline">¶</a></h2>
+<p>This material is based upon work supported by the National Science Foundation under Grant No. 1612843.
+Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do
+not necessarily reflect the views of the National Science Foundation.</p>
+</div>
+<div class="section" id="contact">
+<h2>Contact<a class="headerlink" href="#contact" title="Permalink to this headline">¶</a></h2>
+<p>Charles Wang, NHERI SimCenter, University of California, Berkeley, <a class="reference external" href="mailto:c_w&#37;&#52;&#48;berkeley&#46;edu">c_w<span>&#64;</span>berkeley<span>&#46;</span>edu</a></p>
+</div>
+</div>
+
+
+          </div>
+          <div class="page-nav">
+            <div class="inner"><ul class="page-nav">
+  <li class="next">
+    <a href="common/license.html"
+       title="next chapter"><span class="section-number">1. </span>Copyright and license →</a>
+  </li>
+</ul><div class="footer" role="contentinfo">
+      &#169; Copyright 2020, NHERI SimCenter.
+    <br>
+    Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
+</div>
+
+
+
+            </div>
+          </div>
+      </page>
+    </div>
+    
+    
+  </body>
+</html>

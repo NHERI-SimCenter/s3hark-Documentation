@@ -1,0 +1,6 @@
+.. _lbl-examples:
+
+Examples
+================
+
+Check :ref:`lbl-vnv` for examples.
