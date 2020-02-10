@@ -13,7 +13,7 @@ Site-specific Seismic Hazard Analysis & Research Kit (|appName|)
 
 What is |appName| 
 ---------------------------
-|appName| is the acronym of site-specific seismic hazard analysis and research kit. 
+|appName| is the acronym of site-specific seismic hazard analysis and research kit.  
 This tool focuses on simulating wave propagation along soil depth using finite element (FE) method. 
 The intended audience for s3hark is researchers and practitioners interested in performing site-specific analysis of soil in response to earthquakes, 
 and educators interested in teaching site response analysis in their classes. 

@@ -310,5 +310,6 @@ as shown in :numref:`s3hark3DColumnResults`.
    :align: center                     
    :figclass: align-center   
 
-   Compare with OpenSees
+   Compare with OpenSees 
 
+.. bibliography:: references.bib

@@ -268,10 +268,10 @@ properties of soil layers and the rock are shown
 in <a class="reference internal" href="#fig-s3harksoilcolumn"><span class="std std-numref">Fig. 2.1.1</span></a> and <a class="reference internal" href="#fig-s3hark5"><span class="std std-numref">Fig. 2.1.2</span></a>.  The
 first two layers are modeled by PM4Sand and the third layer is modeled
 by elastic isotropic material.  (The implementation work of
-PM4Sand <a class="bibtex reference internal" href="theory.html#boulanger2015pm4sand" id="id1">[BZ15]</a> is done in University of
+PM4Sand <a class="bibtex reference internal" href="#boulanger2015pm4sand" id="id1">[BZ15]</a> is done in University of
 Washington by Long Chen and Pedro Arduino.  Chaofeng Wang at UC,
 Berkeley contributed to the code optimization for speed improvement. )
-The rock layer will be simplified to a <span class="bibtex" id="id2">[Lysmer:1969]</span> dashpot,
+The rock layer will be simplified to a <a class="bibtex reference internal" href="#lysmer-1969" id="id2">[LK69]</a> dashpot,
 which accounts for the finite rigidity of the underlying elastic
 medium.  The parameters of the dashpot are calculated solely based on
 rock layer’s density and <span class="math notranslate nohighlight">\(V_{s30}\)</span>.</p>
@@ -325,7 +325,7 @@ meshed by elements with a size of 0.5 meter in height.  Basic
 properties of soil layers and the rock are shown
 in <a class="reference internal" href="#s3harksoilcolumn3d"><span class="std std-numref">Fig. 2.2.1</span></a> and <a class="reference internal" href="#s3harklayers3d"><span class="std std-numref">Fig. 2.2.2</span></a>.
 The layers are modeled by PDMY02 material.
-The rock layer will be simplified to a <span class="bibtex" id="id3">[Lysmer:1969]</span> dashpot,
+The rock layer will be simplified to a <a class="bibtex reference internal" href="#lysmer-1969" id="id3">[LK69]</a> dashpot,
 which accounts for the finite rigidity of the underlying elastic
 medium.  The parameters of the dashpot are calculated solely based on
 rock layer’s density and <span class="math notranslate nohighlight">\(V_{s30}\)</span>.
@@ -369,6 +369,97 @@ as shown in <a class="reference internal" href="#s3hark3dcolumnresults"><span cl
 <span id="s3hark3dcolumnresults"></span><img alt="../../_images/3DFreefield.png" src="../../_images/3DFreefield.png" />
 <p class="caption"><span class="caption-number">Fig. 2.2.7 </span><span class="caption-text">Compare with OpenSees</span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
 </div>
+<p id="bibtex-bibliography-common/technical_manual/vnv-0"><table class="bibtex docutils citation" frame="void" id="biot1941general" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Bio41]</td><td>Maurice&nbsp;A Biot. General theory of three-dimensional consolidation. <em>Journal of applied physics</em>, 12(2):155–164, 1941.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="biot1955theory" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Bio55]</td><td>Maurice&nbsp;A Biot. Theory of elasticity and consolidation for a porous anisotropic solid. <em>Journal of applied physics</em>, 26(2):182–185, 1955.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="biot1957elastic" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BW57]</td><td>Maurice&nbsp;A Biot and DG&nbsp;Willis. The elastic coeff cients of the theory of consolidation. <em>J Appl Mech</em>, 15:594–601, 1957.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="borja1994multiaxial" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BA94]</td><td>Ronaldo&nbsp;I Borja and Alexander&nbsp;P Amies. Multiaxial cyclic plasticity model for clays. <em>Journal of geotechnical engineering</em>, 120(6):1051–1070, 1994.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="boulanger2015pm4sand" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[BZ15]</a></td><td>R.&nbsp;W Boulanger and K&nbsp;Ziotopoulou. Pm4sand (version 3): a sand plasticity model for earthquake engineering applications. <em>Center for Geotechnical Modeling Report No. UCD/CGM-15/01, Department of Civil and Environmental Engineering, University of California, Davis, California</em>, 2015.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="boulanger2018pm4silt" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[BZ18]</td><td>Ross&nbsp;W Boulanger and Katerina Ziotopoulou. Pm4silt (version 1): a silt plasticity model for earthquake engineering applications. <em>Report No. UCD/CGM-18/01, Center for Geotechnical Modeling, Department of Civil and Environmental Engineering, University of California, Davis, CA, 108 pp.</em>, 2018.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="dafalias2004simple" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[DM04]</td><td>Yannis&nbsp;F Dafalias and Majid&nbsp;T Manzari. Simple plasticity sand model accounting for fabric change effects. <em>Journal of Engineering mechanics</em>, 130(6):622–634, 2004.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="eringen1965continuum" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[EI65]</td><td>A&nbsp;Cemal Eringen and John&nbsp;D Ingram. A continuum theory of chemically reacting media—i. <em>International Journal of Engineering Science</em>, 3(2):197–212, 1965.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="green1965dynamical" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[GN65]</td><td>Albert&nbsp;Edward Green and Paul&nbsp;Mansour Naghdi. A dynamical theory of interacting continua. <em>International journal of engineering Science</em>, 3(2):231–241, 1965.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="gu2009finite" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[GCEY09]</td><td>Quan Gu, Joel&nbsp;P Conte, Ahmed Elgamal, and Zhaohui Yang. Finite element response sensitivity analysis of multi-yield-surface j2 plasticity model by direct differentiation method. <em>Computer methods in applied mechanics and engineering</em>, 198(30-32):2272–2285, 2009.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="ingram1967continuum" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[IE67]</td><td>John&nbsp;D Ingram and A&nbsp;Cemal Eringen. A continuum theory of chemically reacting media—ii constitutive equations of reacting fluid mixtures. <em>International Journal of Engineering Science</em>, 5(4):289–322, 1967.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="lysmer-1969" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[LK69]</td><td><em>(<a class="fn-backref" href="#id2">1</a>, <a class="fn-backref" href="#id3">2</a>)</em> John Lysmer and Roger&nbsp;L Kuhlemeyer. Finite dynamic model for infinite media. <em>Journal of the Engineering Mechanics Division</em>, 95(4):859–878, 1969.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="prevost1980mechanics" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Prevost80]</td><td>Jean&nbsp;H Prévost. Mechanics of continuous porous media. <em>International Journal of Engineering Science</em>, 18(6):787–800, 1980.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="terzaghi1943theoretical" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[Ter43]</td><td>Karl Terzaghi. Theoretical soil mechanics. johnwiley &amp; sons. <em>New York</em>, pages 11–15, 1943.</td></tr>
+</tbody>
+</table>
+<table class="bibtex docutils citation" frame="void" id="yang2003computational" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[YEP03]</td><td>Zhaohui Yang, Ahmed Elgamal, and Ender Parra. Computational model for cyclic mobility and associated shear deformation. <em>Journal of Geotechnical and Geoenvironmental Engineering</em>, 129(12):1119–1127, 2003.</td></tr>
+</tbody>
+</table>
+</p>
 </div>
 </div>
 
@@ -390,6 +481,7 @@ as shown in <a class="reference internal" href="#s3hark3dcolumnresults"><span cl
     Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1 with <a href="https://github.com/schettino72/sphinx_press_theme">Press Theme</a>.
 </div>
 
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=52d2hredddd&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33&amp;s=170" async="async"></script>
 
 
             </div>
