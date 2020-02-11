@@ -6,7 +6,7 @@ Quick start
 
 
 Download and Install |appName| 
--------------------------------------------------
+------------------------------------------------
 
 The app is `here <https://www.designsafe-ci.org/data/browser/public/designsafe.storage.community/SimCenter/Software/s3hark>`_ if you haven't got it. 
 Follow the instruction :ref:`here <lbl-installation>`  to download and install the application.
