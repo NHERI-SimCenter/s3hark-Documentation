@@ -63,5 +63,4 @@ postprocessDAKOTA
 *.pyc
 *.autosave
 debug.log
-*.json
 MDOF_BuildingModelToSAM
