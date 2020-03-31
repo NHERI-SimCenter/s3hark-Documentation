@@ -263,7 +263,13 @@
 <div class="section" id="d-column-1d-shaking">
 <h2><span class="section-number">2.1. </span>2D Column 1D Shaking<a class="headerlink" href="#d-column-1d-shaking" title="Permalink to this headline">¶</a></h2>
 <p>A 2D free field effective stress analysis is performed by <em>s</em><sup>3</sup><em>hark</em>
-and demonstrated here.  The results are verified against FLAC and
+and demonstrated in this section.
+The simulation is described in a json file, which can be downloaded from
+<a class="reference download internal" download="" href="../../_downloads/286950ee96386c90d83d39d523991a77/2D1D_analysis.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+This file can be loaded by <em>s</em><sup>3</sup><em>hark</em> to build the analysis automatically.
+The ground motion used in this simulation can be downloaded from
+<a class="reference download internal" download="" href="../../_downloads/3998362659b66102f79aa5f88ada16e0/SRT-GM-Input-Style3-full.json"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
+The results are verified against FLAC and
 Plaxis.  The soil column being analyzed is 6 meters high sitting on a
 rock.  The ground water table is at 2 meters below the soil surface.
 In the column, there are a total of three soil layers. Each layer is
@@ -321,7 +327,7 @@ Gregor Vilhar at PLAXIS BV, Chaofeng Wang at UC, Berkeley contributed to the ver
 <div class="section" id="d-column-bidirectional-shaking">
 <h2><span class="section-number">2.2. </span>3D Column Bidirectional Shaking<a class="headerlink" href="#d-column-bidirectional-shaking" title="Permalink to this headline">¶</a></h2>
 <p>A 3D free field effective stress analysis is performed by <em>s</em><sup>3</sup><em>hark</em>
-and demonstrated here.  The results are verified against OpenSees.
+and demonstrated in this section.  The results are verified against OpenSees.
 The soil column being analyzed is 30 meters high sitting on a
 rock.  The ground water table is at 2 meters below the soil surface.
 In the column, there are a total of three soil layers. Each layer is
@@ -343,7 +349,11 @@ The slope parameters are set to be
 <span id="s3harklayers3d"></span><img alt="../../_images/layerstable3D.png" src="../../_images/layerstable3D.png" />
 <p class="caption"><span class="caption-number">Fig. 2.2.2 </span><span class="caption-text">Soil layers of a 3D column</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
-<p>The simulation is described in a json file, which can be downloaded from <a class="reference download internal" download="" href="../../_downloads/63b042d2346f7c707139aa863c4eac8f/s3hark-demo-3D-slope.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+<p>The ground motion used in this simulation can be downloaded from
+<a class="reference download internal" download="" href="../../_downloads/8ad13a2928dc59a0a0b544cf9976519e/SRT-GM-Input-yerbaNSvelocity-2DShaking.json"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>.
+The simulation itself is described in a json file, which can be downloaded from
+<a class="reference download internal" download="" href="../../_downloads/7b0646da1cfbf5a4749355c93bd7a0cc/s3hark-demo-3D-slope.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+This file can be loaded by <em>s</em><sup>3</sup><em>hark</em> to build the analysis automatically.
 It includes all the configurations, the soil table and parameters for each layer - all the information needed to reproduce the simulation.
 In <em>s</em><sup>3</sup><em>hark</em>, go to the menu and choose to open and load this json file into the application,
 You’ll see the detailed properties of the material in each soil layer as those shown
@@ -364,7 +374,7 @@ in Figures <a class="reference internal" href="#s3hark3dmattabs-1"><span class="
 <span id="s3hark3dmattabs-4"></span><img alt="../../_images/layer43D.png" src="../../_images/layer43D.png" />
 <p class="caption"><span class="caption-number">Fig. 2.2.6 </span><span class="caption-text">Detail soil properties and material model parameters  of a 3D column: Rock</span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
-<p>Download the ground motion file from <a class="reference download internal" download="" href="../../_downloads/e592080bdd91b47a2ff7cd6a378c5549/SRT-GM-Input-yerbaNSvelocity-2DShaking.json"><code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code></a>.
+<p>Download the ground motion file from <code class="xref download docutils literal notranslate"><span class="pre">this</span> <span class="pre">link</span></code>.
 In the <code class="docutils literal notranslate"><span class="pre">Configure</span></code> tab, put the path of the downloaded motion file into <code class="docutils literal notranslate"><span class="pre">Rock</span> <span class="pre">motion</span></code>.
 Then, click the <code class="docutils literal notranslate"><span class="pre">Analyze</span></code> button to perform the simulation.
 For the verification and validation purposes, <em>s</em><sup>3</sup><em>hark</em>’s results are compared with OpenSees,
