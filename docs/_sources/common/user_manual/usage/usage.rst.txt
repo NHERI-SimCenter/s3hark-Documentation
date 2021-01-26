@@ -81,13 +81,22 @@ This area contains the three tabbed widgets described below.
 
 Configure Tab
 ^^^^^^^^^^^^^^^^
-This tab allows the user to specify the paths to the OpenSees executable and a ground motion file that represent the ground shaking at the
-bedrock. The rock motion file must follow the SimCenter event format. 
+This tab allows the user to specify the path to the OpenSees executable. 
+If this path is provided, |s3harkName| will call OpenSees to run the analysis.
+If you leave this empty, |s3harkName| will perform the analysis internally. 
+
+You should also provide a motion file that represents the shaking at the bedrock. 
+The rock motion file must follow the SimCenter event format. 
+
 Examples of SimCenter event files are available in the :download:`motion demos <../../../_static/files/DemoGM.zip>`. 
+
 |s3harkName| will determine to use 2D column or 3D column based on the ground motion file provided. 
+
 When a ground motion file is selected from the local computer, or the path of the ground motion file is typed in, 
+
 |s3harkName| will figure out if it’s a 1D or 2D shaking file. If it’s 1D shaking, all elements will be 2D. If it’s 2D shaking, 
 all elements will be 3D. 
+
 The definition of 2D and 3D slope are different. See :numref:`slope-2d` and :numref:`slope-3d`.
 
 More details about this tab can be found in :ref:`configure`.
@@ -181,7 +190,9 @@ In the configure tab, two paths need to be specified.
 
 You can either type them or click the '+' button to select them from your computer.
 
-If you don't have OpenSees install, the instruction can be found :ref:`here <quickstart>`.
+Though OpenSees is not necessary, you can you it as an alternative solver.
+If you don't have OpenSees install, the instruction can be found :ref:`here <quickstart>`. 
+
 If you don't have a ground motion file, demos can be downloaded :download:`here <../../../_static/files/DemoGM.zip>`.
 
 .. note:: 
